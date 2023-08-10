@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="converterImagem.css">
+    <title>Carregar e Exibir Imagem</title>
+</head>
+<body>
+    
+
+	<table border="1">
+		<tr>
+			<th>Imagem</th>
+			<th>Base 64</th>
+		</tr>
+		<tr>
+			<td>
+                <input type="file" id="inputFile" accept="image/*">            
+                <div id="imagemContainer">
+                    <img id="imagemOriginal" alt="imagem">
+                </div>
+                </td>
+				<td><textarea id="imagemOriginalBase64" cols="120" rows="10"></textarea> </td>
+		</tr>
+		<tr>
+			<td><span id="posImagemOriginalDesimensionada"></span></td>
+			<td><textarea id="imagemRedimensionadaBase64" cols="120" rows="10"></textarea> </td>
+		</tr>
+
+		<tr>
+			<td><span id="posImagemFormatada"></span></td>
+			<td><textarea id="imagemFormatadaBase64" cols="120" rows="10"></textarea> </td>
+		</tr>
+	</table>
+
+    <script src="converterImagem.js"></script>
+</body>
+</html>
