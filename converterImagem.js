@@ -98,16 +98,25 @@ function imageParaBase64(imagemExibida) {
    return base64String;
 }
 
-function redimensionarImagem(imagemOriginalParam, widthParam, heightParam) {
+
+
+
+function redimensionarImagem( widthParam=26, heightParam=35) {
     
     //Imagem original
+    const imagemOriginalParam= document.querySelector('#imagemOriginal')
+
 	const imagemOriginalBase64 = document.querySelector('#imagemOriginalBase64')
 	imagemOriginalBase64.innerText=imagemOriginalParam.src;
+
+
 
     //Imagem redimensionada
     const canvasImagemRedimensionada = criarCanvasAPartirDeImagem(imagemOriginalParam,widthParam,heightParam );
     const posImagemOriginalDesimensionada = document.querySelector('#posImagemOriginalDesimensionada')
-	posImagemOriginalDesimensionada.appendChild(canvasImagemRedimensionada);    
+	
+    posImagemOriginalDesimensionada.textContent = ''
+    posImagemOriginalDesimensionada.appendChild(canvasImagemRedimensionada);    
 
    
 	const contextoImageRedimensionada = canvasImagemRedimensionada.getContext("2d");
@@ -125,6 +134,7 @@ function redimensionarImagem(imagemOriginalParam, widthParam, heightParam) {
 	contextoImageFormatada.putImageData(imagemFormatada, 0,0);
 
 	const posImagemFormatada = document.querySelector('#posImagemFormatada')
+    posImagemFormatada.textContent = ''
 	posImagemFormatada.appendChild(canvasImagemFormatada);
 
 
@@ -134,6 +144,7 @@ function redimensionarImagem(imagemOriginalParam, widthParam, heightParam) {
 
 }    
 
+
 inputFile.addEventListener('change', function (event) {
     const file = event.target.files[0];
     if (file) {
@@ -141,7 +152,9 @@ inputFile.addEventListener('change', function (event) {
         reader.onload = function (readerEvent) {
             imagemExibida.src = readerEvent.target.result;
             imagemContainer.style.display = 'block';
-            redimensionarImagem(imagemExibida, 26, 35)
+           
+           
+            
         };
         reader.readAsDataURL(file);
         
